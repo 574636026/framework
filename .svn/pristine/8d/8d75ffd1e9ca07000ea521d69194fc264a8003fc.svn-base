@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+#set($baseResultMap = "BaseResultMap")
+#set($entityResultMap = "EntityResultMap")
+
+<mapper namespace="${javaMapperGeneratedLongClassName}">
+## 判断联合主键
+#set($pknum = 0)
+## 获取主键字段
+#foreach($column in ${table.columns})
+#if($column.isPrimaryKey)
+#set($pkcolumn = $column)
+#set($pknum = $pknum + 1)
+#end
+#if($column.name == "is_delete")
+#set($hasFlag = true)
+#end
+#end
+
+## 返回对象
+    <resultMap type="${domainGeneratedLongClassName}" id="$entityResultMap">
+    	<id property="${pkcolumn.camelName}" column="${pkcolumn.name}"/>
+#foreach($column in ${table.columns})
+#if(!${column.isPrimaryKey})
+		<result property="${column.camelName}" column="${column.name}"/>
+#end
+#end
+    </resultMap>
+ 	<resultMap type="${domainGeneratedLongClassName}" id="$baseResultMap" extends="$entityResultMap">
+	</resultMap>
+#set($aliasTable = "t")
+## 公用代码片段
+ 	<sql id="allcolumn">
+        ${aliasTable}.*
+    </sql>
+    <sql id="fromCase">
+		${table.name} ${aliasTable}       
+    </sql>
+    <sql id="whereCase">
+        <where>
+        	#if($hasFlag)
+        	<if test="proParamIsDelete != null">
+			    and ${aliasTable}.is_delete = #{proParamIsDelete,jdbcType=INTEGER}
+			</if> 
+        	#end
+        	<if test="id != null">
+        		and ${aliasTable}.${pkcolumn.name} = #{id}
+        	</if>
+        </where>
+    </sql>
+    <sql id="pageCase">
+        <if test="proParamPageable">
+            limit #{proParamPager.currentPageFormRow},#{proParamPager.pageSize}
+        </if>
+    </sql>
+## 查询列表
+
+	<select id="getList" parameterType="java.util.HashMap" resultMap="$baseResultMap">
+		select <include refid="allcolumn"/>
+		from <include refid="fromCase"/>
+		<include refid="whereCase"/>
+		<include refid="orderCase"/>
+		<include refid="pageCase"/>
+	</select>
+
+## 排序相关
+#if($table.sort)
+	<select id="getMaxSort" resultType="java.lang.Float">
+		select max(sort)
+		from ${table.name}
+	</select>
+	
+	<select id="getMinSort" resultType="java.lang.Float">
+		select min(sort)
+		from ${table.name}
+	</select>
+#end	
+## 查询对象数量
+	<select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(${aliasTable}.${pkcolumn.name}) 
+		from <include refid="fromCase"/>
+		<include refid="whereCase"/>
+	</select>
+## 查询对象
+	<select id="get" parameterType="java.util.HashMap" resultMap="$baseResultMap">
+		select <include refid="allcolumn"/> 
+		from <include refid="fromCase"/>
+		<include refid="whereCase"/>
+		<include refid="orderCase"/>
+		limit 1
+	</select>
+## 插入数据
+	<insert id="save" parameterType="${domainGeneratedLongClassName}">
+		insert into ${table.name}
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+#foreach($column in ${table.columns})
+		<if test="${column.camelName} != null" >
+			${column.name},
+		</if>
+#end
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+#foreach($column in ${table.columns})
+		<if test="${column.camelName} != null" >
+			#{${column.camelName},jdbcType=${column.jdbcType}},
+		</if>
+#end
+		</trim>
+#if($pknum == 1)
+		<selectKey keyProperty="${pkcolumn.camelName}" resultType="${pkcolumn.javaType}">
+		    SELECT LAST_INSERT_ID() AS ${pkcolumn.camelName}
+		</selectKey>
+#end
+	</insert>
+
+## 批量插入数据
+	<insert id="saveBatch" parameterType="java.util.List">
+		insert into ${table.name}
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+		#foreach($column in ${table.columns})
+		#if(${column.name} != 'id')${column.name},#end 
+		#end
+		</trim>
+		values
+		<foreach collection="list" item="item" separator=",">
+			<trim prefix="(" suffix=")" suffixOverrides="," >
+#foreach($column in ${table.columns})
+#if(${column.name} != 'id')
+			#{item.${column.camelName},jdbcType=${column.jdbcType}},
+#end
+#end
+			</trim>
+        </foreach>
+	</insert>
+	
+## 更新数据
+	<update id="update" parameterType="${domainGeneratedLongClassName}" >
+		update ${table.name}
+		<set>
+#foreach($column in ${table.columns})
+#if(!${column.isPrimaryKey})
+			<if test="${column.camelName} != null" >
+				${column.name} = #{${column.camelName},jdbcType=${column.jdbcType}},
+			</if>
+#end
+#end
+		</set>
+		where ${pkcolumn.name} = #{${pkcolumn.camelName},jdbcType=${pkcolumn.jdbcType}}
+	</update>
+## 标记删除
+	<update id="delete">
+		update ${table.name}
+		<set>
+		    is_delete = 1
+		</set>
+		where ${pkcolumn.name} = #{${pkcolumn.camelName}}
+	</update>
+## 删除数据
+	<delete id="remove">
+	    delete from ${table.name}
+	    where ${pkcolumn.name} = #{${pkcolumn.camelName}}
+	</delete>
+## 排序片段
+	<sql id="orderInclude">
+		#set($tempSortType = '${proParamOrder.sortType}')
+		#foreach($column in ${table.columns})
+			#if($column.name != "is_delete")
+				<if test="proParamOrder.column == '${column.camelName}'">
+				 	${aliasTable}.${column.name} ${tempSortType}
+				 </if>
+			#end
+		#end
+	</sql>
+	
+	<sql id="orderCase">
+		<if test="proParamOrder != null">
+		    <trim prefix="order by">
+		        <include refid="orderInclude"/>
+		    </trim>
+		</if>
+		<if test="proParamOrderList != null">
+		    <trim prefix="order by">
+			    <foreach collection="proParamOrderList" item="proParamOrder" separator=",">
+					  <include refid="orderInclude"/>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+</mapper>

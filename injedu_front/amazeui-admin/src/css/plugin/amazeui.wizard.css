@@ -1,0 +1,47 @@
+.am-nav-tabs-wizard {
+    padding: 2rem 0;
+}
+
+.am-nav-tabs-wizard>li {
+    float: left;
+}
+
+.am-nav-tabs-wizard>li>a {
+    font-size: 1.6rem;
+}
+
+.am-nav-tabs-wizard>li.am-active>a,
+.am-nav-tabs-wizard>li.am-active>a:focus,
+.am-nav-tabs-wizard>li.am-active>a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.am-nav-tabs-wizard>li>a:focus, .am-nav-tabs-wizard>li>a:hover {
+    background-color: #fff;
+}
+
+.am-nav-tabs-wizard>li .am-icon-btn {
+    color:#fff;
+}
+
+.am-nav-tabs-wizard>li.am-active .am-icon-btn {
+    background-color: #0e90d2;
+}
+
+.am-nav-tabs-wizard > li+li {
+    margin-top: auto;
+}
+
+.form-wizard > .am-tabs-bd-wizard {
+    border: none;
+}
+
+.form-wizard > .form-actions {
+    padding: 2em 0;
+}
+
+.form-wizard > .form-actions .am-btn-primary, .form-actions .am-btn-success,
+.form-actions .am-btn-secondary, .form-actions .am-btn-danger {
+    color: #fff;
+}

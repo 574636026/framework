@@ -1,0 +1,63 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">下拉框</a></li>
+	        <li><a href="javascript:;">Select</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    	下拉框<span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                    <div class="am-g am-form am-form-horizontal">
+                    	<div class="am-form-group">
+                    		<label class="am-u-sm-2 am-form-label">下拉框</label>
+                    		<div class="am-u-sm-4 am-u-end">
+                    			<select placeholder="请选择" data-ij-select>
+                    				<option>周一</option>
+                    				<option>周二</option>
+                    				<option>周三</option>
+                    				<option>周四</option>
+						        </select>
+                    		</div>
+                    	</div>
+                     	<div class="am-form-group">
+                     		<label class="am-u-sm-2 am-form-label">级联下拉框</label>
+                            <div class="am-u-sm-5 am-u-end">
+                            	<div data-ij-relactionselect="{
+                            		url : ['json/select/province.json',
+                            				'json/select/city/%s.json',
+                            				'json/select/area/%s.json'] ,
+                            		amoptions : {btnWidth:'120px'}}"
+                            		>
+                            		<ul class="am-avg-sm-3">
+                            			<li>
+	                            			<select placeholder="省">
+	                            				<option value=""></option>
+						                    </select>
+                            			</li>
+                            			<li>
+	                            			<select placeholder="市">
+	                            				<option value=""></option>
+						                    </select>
+                            			</li>
+                            			<li>
+	                            			<select placeholder="区县">
+	                            				<option value=""></option>
+						                    </select>
+                            			</li>
+                            		</ul>
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+</html>

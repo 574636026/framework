@@ -1,0 +1,73 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">查找带回</a></li>
+	        <li><a href="javascript:;">Lookup</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    <span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                    <div class="am-g am-form am-form-horizontal">
+                    	<div class="am-form-group">
+                    		<label class="am-u-sm-2 am-form-label">单选</label>
+                    		<div class="am-u-sm-10">
+                    			<input name="lookUpSingle" type="text" class="am-form-field"/>
+                    		</div>
+                        </div>
+                        <div class="am-form-group">
+                    		<label class="am-u-sm-2 am-form-label">多选</label>
+                    		<div class="am-u-sm-10">
+                    			<input name="lookUpMulpitle" type="text" class="am-form-field"/>
+                    		</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+<script type="text/javascript">
+	$(function(){
+		
+		var data = [];
+
+		for (var i = 0; i < 100; i++) {
+
+			data.push({
+				"id" : i,
+				"title" : "标题" + i,
+				"category" : "分类" + i,
+				"author" : "作者" + i,
+				"time" : "2015-12-07"
+			});
+		}
+		
+		
+		$('input[name="lookUpSingle"]').ijlookup({
+			url : './example/lookup/lookup.html',
+			renderOptions : {
+				actionsMap : {
+					'query' : data
+				}
+			}
+		});
+		
+		$('input[name="lookUpMulpitle"]').ijlookup({
+			url : './example/lookup/lookup.html',
+			lookType : 'mulitiple',
+			renderOptions : {
+				actionsMap : {
+					'query' : data
+				}
+			}
+		});
+		
+	});
+</script>
+</html>

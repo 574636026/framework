@@ -1,0 +1,23 @@
+package ${packageName};
+
+#set($BaseMapper = "IBaseSqlMapper")
+## 排序处理
+#if($table.sort)
+#set($BaseMapper = "IBaseSortedSqlMapper")
+#end
+
+#foreach($im in ${importList})
+import ${im};
+#end
+import com.injedu.core.mapper.${BaseMapper};
+
+/**
+ * ${table.desc}mapper接口
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+public interface ${javaMapperGeneratedShotClassName} extends ${BaseMapper}<${domainGeneratedShotClassName}>{
+
+}

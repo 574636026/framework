@@ -1,0 +1,18 @@
+package ${packageName};
+
+#foreach($im in ${importList})
+import ${im};
+#end
+
+/**
+ * ${table.desc}
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+public class ${domainGeneratedShotClassName} extends ${entityGeneratedShotClassName}{
+
+	private static final long serialVersionUID = 1L;
+
+}

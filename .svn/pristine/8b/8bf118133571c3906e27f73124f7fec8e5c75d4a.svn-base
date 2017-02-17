@@ -1,0 +1,18 @@
+    <!-- content start -->
+        <div>
+        	<ul class="am-breadcrumb">
+	            <li><a href="javascript:;">富文本编辑器</a></li>
+	            <li><a href="javascript:;">WangEditor</a></li>
+            </ul>
+        </div>
+        <div class="am-g">
+            <div class="am-u-md-12">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf">富文本编辑器</div>
+                    <div class="am-panel-bd am-collapse am-in" >
+                    	<textarea data-ij-editor style="height:400px;max-height:500px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- content end -->

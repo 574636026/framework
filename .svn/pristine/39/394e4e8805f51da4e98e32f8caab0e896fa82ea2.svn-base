@@ -1,0 +1,25 @@
+# system error
+system.error=\u7CFB\u7EDF\u5F02\u5E38
+system.fileupload.error=\u6587\u4EF6\u4E0A\u4F20\u9519\u8BEF
+system.fileupload.dir.unsupport=\u4E0D\u652F\u6301\u6B64\u4E0A\u4F20\u76EE\u5F55
+system.fileupload.dir.unkonw=\u672A\u77E5\u7684\u4E0A\u4F20\u76EE\u5F55:[key - {0}],\u67E5\u770B\u914D\u7F6E(injedu.upload.dirs)
+system.fileupload.compress.error=\u56FE\u7247\u538B\u7F29\u9519\u8BEF
+# data error
+data.insert.error=\u6570\u636E\u5E93\u63D2\u5165\u5F02\u5E38
+data.insert.duplicateKey=\u6570\u636E\u5E93\u63D2\u5165\u5F02\u5E38:\u91CD\u590D\u5199\u5165\u6570\u636E
+data.delete.error=\u6570\u636E\u5E93\u5220\u9664\u5F02\u5E38
+data.update.error=\u6570\u636E\u5E93\u66F4\u65B0\u5F02\u5E38
+data.select.error=\u6570\u636E\u5E93\u67E5\u8BE2\u5F02\u5E38
+# cache error
+cache.delete.unknowtype=\u5220\u9664\u7F13\u5B58\u5931\u8D25,\u672A\u77E5\u7684\u7C7B\u578B:[{0}]
+# custom error
+res.api.commond.error=\u63A5\u53E3\u6307\u4EE4\u9519\u8BEF
+res.api.token.error=token\u6821\u9A8C\u5931\u8D25
+res.api.encrypt.error=\u6D88\u606F\u52A0\u5BC6\u9519\u8BEF
+res.api.decrypt.error=\u6D88\u606F\u89E3\u5BC6\u5931\u8D25
+res.data.notfount=[{0}] \u672A\u627E\u5230
+res.data.notallow.find=\u4E0D\u5141\u8BB8\u67E5\u770B\u6B64\u6570\u636E
+res.data.notallow.modify=\u4E0D\u5141\u8BB8\u4FEE\u6539\u6B64\u6570\u636E
+res.data.password.error=\u5BC6\u7801\u9519\u8BEF
+res.upload.error=\u8D44\u6E90\u4E0A\u4F20\u5931\u8D25:{0}
+res.upload.empty=\u8D44\u6E90\u6587\u4EF6\u4E0D\u5B58\u5728

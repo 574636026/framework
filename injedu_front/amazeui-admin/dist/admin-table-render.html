@@ -1,0 +1,106 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">首页</a></li>
+	        <li><a href="javascript:;">表格</a></li>
+	        <li><a href="javascript:;">Render</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+                <div class="ij-table am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf" >
+                        <span class="am-icon-globe"></span>
+                        <span class="am-toolbar"></span>
+                        <span class="am-icon-chevron-down am-fr" data-am-collapse="{target: '#grid-collapse-panel'}"></span>
+                    </div>
+                    <div class="am-panel-bd am-collapse am-in" id="grid-collapse-panel">
+                        <div class="am-g am-searchbar">
+                            <div class="am-u-sm-6">
+                                <div class="am-input-group am-input-group-sm">
+                                    <input name="lsearch" type="text" class="am-form-field" placeholder="标题"/>
+                                    <span class="am-input-group-btn">
+                                        <button class="am-btn am-btn-secondary ij-search" type="button">搜索</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <table id="grid-render" class="am-table am-table-striped am-table-bordered am-table-hover ij-table-fixed">
+                            <thead>
+                                <tr>
+                                    <th width="8%" ij-cloumn="id" class="ij-check table-check"><input type="checkbox"/></th>
+                                    <th ij-cloumn="title">标题</th>
+                                    <th width="18%" ij-cloumn="img" ij-type="img">图片</th>
+                                    <th width="16%" ij-cloumn="address" ij-type="link">地址</th>
+                                    <th width="16%" ij-cloumn="disabled" ij-type="bool">禁用</th>
+                                    <th width="16%" ij-cloumn="status">状态</th>
+                                    <th width="16%" ij-cloumn="time">修改日期</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+<!-- content end -->
+<script type="text/javascript">
+
+    $(function(){
+
+        var root = 'assets/example/table';
+
+        var data = [];
+
+
+        for(var i=0;i<3;i++){
+
+            data.push({
+                "id": i,
+                "title": "标题" + i,
+                "img": './img/Desert.jpg',
+                "address": 'http://www.baidu.com',
+                'disabled' : false,
+                'status' : i,
+                "time": "2015-12-07"
+            });
+        }
+
+        for(var i=0;i<97;i++){
+
+            data.push({
+                "id": i,
+                "title": "标题" + i,
+                "img": './img/bw-2014-06-19.jpg',
+                "address": 'http://www.baidu.com',
+                'disabled' : true,
+                'status' : i,
+                "time": "2015-12-07"
+            });
+        }
+
+        $('#grid-render').ijtable({
+            'root' : root,
+            actionsMap:{
+                'query' : data
+            },
+            pageSuffix : 'html',
+            columnsRender : {
+                'status' : function(data){
+
+                    switch(data){
+                        case 0 :return '<span class="am-badge am-badge-primary">状态1</span>';
+                        case 1 :return '<span class="am-badge am-badge-secondary">状态2</span>';
+                        case 2 :return '<span class="am-badge am-badge-success">状态3</span>';
+                        case 3 :return '<span class="am-badge am-badge-warning">状态4</span>';
+                        case 4 :return '<span class="am-badge am-badge-danger">状态5</span>';
+                    }
+
+                    return '<span class="am-badge">未知类型</span>';
+                }
+            }
+        });
+
+    });
+
+</script>

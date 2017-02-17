@@ -1,0 +1,43 @@
+package ${packageName};
+
+#foreach($im in ${importList})
+import ${im};
+#end
+import com.injedu.springmvc.common.exception.AppException;
+
+/**
+ * ${table.desc}service 测试
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+public class ${serviceTestGeneratedShotClassName} extends TestCase{
+
+	private Long id = 1L;
+	
+	@Autowired
+	private ${serviceGeneratedShotClassName} ${serviceFirstLowerNoBeginGeneratedClassName};
+
+	@Test
+	public void save() throws AppException {
+		${domainGeneratedShotClassName} entity = new ${domainGeneratedShotClassName}();
+
+		${serviceFirstLowerNoBeginGeneratedClassName}.saveOrUpdate(entity,null);
+
+		Assert.assertNotNull(entity.getId());
+	}
+
+	@Test
+	public void delete() throws AppException {
+
+		${serviceFirstLowerNoBeginGeneratedClassName}.delete(id);
+
+	}
+
+	@Test
+	public void remove() throws AppException {
+
+		${serviceFirstLowerNoBeginGeneratedClassName}.remove(id);
+	}
+}

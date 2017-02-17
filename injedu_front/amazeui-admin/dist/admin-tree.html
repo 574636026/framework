@@ -1,0 +1,104 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">树形</a></li>
+	        <li><a href="javascript:;">Tree</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                  	  树形<span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+		             <ul class="am-tree" id="firstTree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+<script type="text/javascript">
+
+	var $tools = $.IJ.Tools;
+
+    $(function () {
+
+    	var products = {
+    		
+    		1 : [
+                 {
+                     title: 'iPhone',
+                     type: 'folder',
+                     id:11
+                 },
+                 {
+                     title: 'iMac',
+                     type: 'item',
+                     id:12
+                 },
+                 {
+                     title: 'MacBook Pro',
+                     type: 'item',
+                     id:13
+                 }
+             ],
+           2 : [
+                {
+                    title: 'WinPhone',
+                    type: 'item',
+                    id:21
+                },
+                {
+                    title: 'Surface',
+                    type: 'item',
+                    id:22
+                }
+            ],
+           11:[
+				{
+				    title: 'IPhone 6',
+				    type: 'item',
+				    id:111
+				},
+				{
+				    title: 'IPhone 7',
+				    type: 'item',
+				    id:112
+				}
+              ]
+    	}
+    	
+        var data = [
+            {
+                title: '苹果公司',
+                type: 'folder',
+                id : 1
+            },
+            {
+                title: '微软公司',
+                type: 'folder',
+                id : 2
+            },
+            {
+                title: 'GitHub',
+                type: 'folder',
+                id: 3
+            }
+        ];
+
+    	
+        $('#firstTree').ijtree({
+        	root : data,
+        	childs : function(data,callback){
+        		
+        		callback({data : products[data.id] || []});
+        		
+        	}
+        });
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "item" : "radio",
+  "value" : "1001",
+  "sub" : [
+  	{"item" : "单选1","value" : 1},
+	{"item" : "单选2","value" : 2},
+	{"item" : "单选3","value" : 3},
+	{"item" : "单选4","value" : 4}
+  ]
+}

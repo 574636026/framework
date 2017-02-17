@@ -1,0 +1,83 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">首页</a></li>
+	        <li><a href="javascript:;">表格</a></li>
+	        <li><a href="javascript:;">Simple</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+                <div class="ij-table am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf" >
+                        <span class="am-icon-globe"></span>
+                        <span class="am-toolbar"></span>
+                        <span class="am-icon-chevron-down am-fr" data-am-collapse="{target: '#grid-collapse-panel'}"></span>
+                    </div>
+                    <div class="am-panel-bd am-collapse am-in" id="grid-collapse-panel">
+                    	<div class="am-cf" data-am-collapse="{target: '#grid-collapse-panel .am-searchbar'}">
+                    		<div class="am-blockquote am-blockquote-secondary">
+                    			<i class="am-icon-search"></i> 筛选
+                    		</div>
+                    		<hr/>
+						</div>
+                        <div class="am-u-sm-12 am-searchbar am-form-horizontal am-collapse">
+                            <div class="am-u-sm-6">
+                                <div class="am-input-group am-input-group-sm">
+                                    <input name="lsearch" type="text" class="am-form-field" placeholder="标题"/>
+                                    <span class="am-input-group-btn">
+                                        <button class="am-btn am-btn-secondary ij-search" type="button">搜索</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-6">
+                            	<button class="am-btn am-btn-sm am-btn-secondary ij-reset" type="button">重置</button>
+                            </div>
+                        </div>
+                        <table id="grid" class="am-table am-table-striped am-table-bordered am-table-hover ij-table-fixed">
+                            <thead>
+                                <tr>
+                                    <th width="8%" ij-cloumn="id" class="ij-check"><input type="checkbox"/></th>
+                                    <th ij-cloumn="title">标题</th>
+                                    <th width="18%" ij-cloumn="category">类别</th>
+                                    <th width="15%" ij-cloumn="author">作者</th>
+                                    <th width="15%" ij-cloumn="time">修改日期</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+<!-- content end -->
+<script type="text/javascript">
+
+    $(function(){
+
+        var root = './example/table';
+
+        var data = [];
+
+        for(var i=0;i<100;i++){
+
+            data.push({
+                "id": i,
+                "title": "标题" + i,
+                "category": "分类" + i,
+                "author": "作者" + i,
+                "time": "2015-12-07"
+            });
+        }
+
+        var api = $('#grid').ijtable({
+            'root' : root,
+            actionsMap : {
+                'query' : data
+            },
+            pageSuffix : 'html'}
+        );
+
+    });
+
+</script>

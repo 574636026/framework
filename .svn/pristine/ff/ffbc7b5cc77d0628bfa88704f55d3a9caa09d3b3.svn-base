@@ -1,0 +1,46 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">验证</a></li>
+	        <li><a href="javascript:;">Validate</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    	验证<span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                	<form id="form" action="#" data-am-validator>
+	                    <div class="am-g am-form am-form-horizontal">
+	                     	<div class="am-form-group">
+	                     		<label class="am-u-sm-2 am-form-label">日期</label>
+	                     		<div class="am-u-sm-4 am-u-end">
+	                     			<input class="am-form-field am-input-sm" required data-am-datepicker/>
+	                     		</div>
+	                        </div>
+	                        <div class="am-form-group">
+	                     		<label class="am-u-sm-2 am-form-label">日期时间</label>
+	                     		<div class="am-u-sm-4 am-u-end">
+	                     			<input class="am-form-field am-input-sm" required data-ij-datetimepicker/>
+	                     		</div>
+	                        </div>
+	                        <div class="am-form-group">
+	                     		<label class="am-u-sm-2 am-form-label">远程验证</label>
+	                     		<div class="am-u-sm-4 am-u-end">
+	                     			<input name="remote" class="am-form-field am-input-sm" remote="{url : './json/validate/faild.json',message : 'unique'}"/>
+	                     		</div>
+	                        </div>
+	                         <div class="am-u-sm-offset-2">
+	                     		<button class="am-btn am-btn-primary">提交</button>
+	                        </div>
+	                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+</html>

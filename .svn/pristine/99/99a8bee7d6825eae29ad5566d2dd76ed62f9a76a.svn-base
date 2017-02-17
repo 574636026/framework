@@ -1,0 +1,51 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">输入框工具</a></li>
+	        <li><a href="javascript:;">TouchSpin</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    <span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                    <form class="am-g am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">垂直数字框</label>
+                            <div class="am-u-sm-2 am-u-end">
+                                <input type="text" class="am-form-field am-input-sm" value="0" name="vtouchspin"
+                                	data-ij-number="{step : 0.1,decimals:1,verticalbuttons:true}"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">横向数字框</label>
+                            <div class="am-u-sm-6 am-u-end">
+                                <input type="text" class="am-form-field" value="0" name="touchspin"
+                                	data-ij-number="{max:10000}"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">百分比</label>
+                            <div class="am-u-sm-4 am-u-end">
+                                <input type="text" class="am-form-field" value="0" name="touchspin"
+                                	data-ij-number="{postfix:'%'}"/>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">金额</label>
+                            <div class="am-u-sm-4 am-u-end">
+                                <input type="text" class="am-form-field" value="0" name="touchspin"
+                                	data-ij-number="{decimals:2,postfix:'￥'}"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+</html>

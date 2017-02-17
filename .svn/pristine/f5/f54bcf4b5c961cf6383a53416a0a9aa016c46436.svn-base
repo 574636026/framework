@@ -1,0 +1,31 @@
+package ${packageName};
+
+#set($BaseDao = "BaseDao")
+## 排序处理
+#if($table.sort)
+#set($BaseDao = "BaseSortedDao")
+#end
+
+#foreach($im in ${importList})
+import ${im};
+#end
+import com.injedu.core.dao.${BaseDao};
+
+/**
+ * ${table.desc}dao实现
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+@Repository
+public class ${daoImplGeneratedShotClassName} extends ${BaseDao}<${domainGeneratedShotClassName}> {
+
+    @Resource
+	private ${javaMapperGeneratedShotClassName} ${javaMapperFirstLowerGeneratedClassName};
+
+	@Override
+	protected ${javaMapperGeneratedShotClassName} getMapper() {
+		return ${javaMapperFirstLowerGeneratedClassName};
+	}
+}

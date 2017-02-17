@@ -1,0 +1,107 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">分步骤Form</a></li>
+	        <li><a href="javascript:;">Wizard</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    <span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                        <div id="form-wizard" class="form-wizard" data-am-formWizard>
+                            <input name="id" type="hidden" value="1"/>
+                        <div class="form-body">
+                            <form name="wizardForm" class="am-form am-form-horizontal">
+                                <div class="am-tabs am-wizard-tabs am-margin-bottom-sm">
+                                    <ul class="am-tabs-nav am-avg-sm-4">
+                                        <li>
+                                            <a href="javascript:;" ><span class="am-icon-btn am-icon-btn-lg">1</span> 第一步</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ><span class="am-icon-btn am-icon-btn-lg">2</span> 第二步</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ><span class="am-icon-btn am-icon-btn-lg">3</span> 第三步</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ><span class="am-icon-btn am-icon-btn-lg">4</span> 第四步</a>
+                                        </li>
+                                    </ul>
+                                    <div class="am-tabs-bd am-tabs-bd-wizard">
+                                        <div class="am-tab-panel">
+                                            <div class="am-form-group am-u-sm-centered">
+                                                <label class="am-u-sm-2 am-form-label">用户名</label>
+                                                <div class="am-u-sm-4 am-u-end">
+                                                    <input type="text" name="name" placeholder="请输入用户名" required remote="{url : './json/validate/success.json',message : 'unique'}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="am-tab-panel" >
+                                            <div class="am-form-group">
+                                                <label class="am-u-sm-2 am-form-label">密码</label>
+                                                <div class="am-u-sm-4 am-u-end">
+                                                    <input type="password" name="password" placeholder="请输入密码" required/>
+                                                </div>
+                                            </div>
+                                            <div class="am-form-group">
+                                                <label class="am-u-sm-2 am-form-label">确认密码</label>
+                                                <div class="am-u-sm-4 am-u-end">
+                                                    <input type="password" name="rePassword" placeholder="请确认密码" required data-equal-to="[name='password']"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="am-tab-panel" >
+                                            <label class="am-u-sm-2 am-form-label">随便填什么</label>
+                                            <div class="am-u-sm-4 am-u-end">
+                                                <input type="text" name="radom" />
+                                            </div>
+                                        </div>
+                                        <div class="am-tab-panel" >
+                                            <div class="show-result">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="am-g form-actions">
+                                <div class="am-u-sm-6 am-u-sm-centered">
+                                    <a class="am-btn am-btn-primary button-previous">上一步</a>
+                                    <a class="am-btn am-btn-primary button-next">下一步</a>
+                                    <a class="am-btn am-btn-danger button-finish">提交</a>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+<script type="text/javascript">
+
+    $(function () {
+
+        var $dl = $.IJ.Dialog;
+        var $tools = $.IJ.Tools;
+        var $fromwizard = $('#form-wizard');
+
+        $fromwizard.on('next.wizard.amui',function(e, tab , navigation, index){
+
+            console.log('next == ' + index);
+
+        }).on('finish.wizard.amui',function(){
+
+            console.log('finish ..');
+
+        });
+
+    });
+
+</script>
+</body>
+</html>

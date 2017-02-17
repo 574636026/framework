@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.injedu.kxx.maintain.res.mapper.ResCourseMapper">
+
+	<resultMap type="com.injedu.kxx.maintain.res.domain.ResCourse"
+		id="EntityResultMap">
+		<id property="id" column="id" />
+		<result property="code" column="code" />
+		<result property="name" column="name" />
+		<result property="type" column="type" />
+		<result property="typeName" column="type_name" />
+		<result property="brief" column="brief" />
+		<result property="teacherName" column="teacher_name" />
+		<result property="coverImg" column="cover_img" />
+		<result property="descImg" column="desc_img" />
+		<result property="period" column="period" />
+		<result property="tag" column="tag" />
+		<result property="price" column="price" />
+		<result property="validity" column="validity" />
+		<result property="priceFavorable" column="price_favorable" />
+		<result property="section" column="section" />
+		<result property="grade" column="grade" />
+		<result property="discipline" column="discipline" />
+		<result property="versionName" column="version_name" />
+		<result property="published" column="published" />
+		<result property="createBy" column="create_by" />
+		<result property="createTime" column="create_time" />
+		<result property="lastUpdateBy" column="last_update_by" />
+		<result property="lastUpdateTime" column="last_update_time" />
+		<result property="isDelete" column="is_delete" />
+		<result property="aaa" column="aaa"/>
+	</resultMap>
+
+	<resultMap type="com.injedu.kxx.maintain.res.domain.ResCourse"
+		id="BaseResultMap" extends="EntityResultMap">
+	</resultMap>
+
+
+
+</mapper>

@@ -1,0 +1,11 @@
+{
+  "item" : "多选框",
+  "value" : "1001",
+  "sub" : [
+  	{"item" : "选项1","value" : 1},
+	{"item" : "选项2","value" : 2},
+	{"item" : "选项3","value" : 3},
+	{"item" : "选项4","value" : 4},
+	{"item" : "选项5","value" : 5}
+  ]
+}

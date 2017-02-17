@@ -1,0 +1,79 @@
+    <!-- content start -->
+        <div>
+        	<ul class="am-breadcrumb">
+	            <li><a href="javascript:;">窗口</a></li>
+	            <li><a href="javascript:;">Window</a></li>
+            </ul>
+        </div>
+        <div class="am-g">
+            <div class="am-u-md-12">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf">窗口</div>
+                    <div class="am-panel-bd am-collapse am-in" >
+                    	<button class="am-btn am-btn-primary" id="open">弹出窗口(居中)</button>
+                    	<button class="am-btn am-btn-primary" id="openBottom">弹出窗口(底部)</button>
+                        <button class="am-btn am-btn-primary" id="leftSidebar">左边栏</button>
+                        <button class="am-btn am-btn-primary" id="rightSidebar">右边栏</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- content end -->
+
+<script type="text/javascript">
+
+
+    var $win = $.IJ.Window;
+
+    $(function(){
+    	
+		$('#open').on('click',function(){
+    		
+    		//$win.open({
+    		//	url : './example/table/detail.html'
+    		//});
+    		
+    		$win.open({
+    			url : 'admin-dialog.html'
+    		});
+    		
+    	});
+		
+		$('#openBottom').on('click',function(){
+    		
+    		$win.bottom({
+    			url : './example/table/detail.html'
+    		});
+    		
+    	});
+    	
+		var $winLeft,$winRight;
+		
+    	$('#leftSidebar').on('click',function(){
+    		
+    		if(!$winLeft){
+    			$winLeft = $win.sidebar({
+        			direction : 'left',
+        			url : './example/table/detail.html'
+        		});
+    		}
+    		
+    		$winLeft.offCanvas('open');;
+    		
+    	});
+    	
+		$('#rightSidebar').on('click',function(){
+    		
+			if(!$winRight){
+				$winRight = $winLeft = $win.sidebar({
+        			direction : 'left',
+        			url : './example/table/detail.html'
+        		});
+			}
+			
+			$winRight.offCanvas('open');
+    		
+    	});
+
+    });
+</script>

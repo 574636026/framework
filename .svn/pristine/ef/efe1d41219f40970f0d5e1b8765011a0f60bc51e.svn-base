@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.injedu</groupId>
+		<artifactId>parent</artifactId>
+		<version>2.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>injedu-framework-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>2.0.1-SNAPSHOT</version>
+
+	<modules>
+		<module>app/injedu-framework-core</module>
+		<module>app/injedu-framework-mvc</module>
+	</modules>
+
+	<properties>
+
+		<!-- jar version -->
+		<servlet.version>3.0.1</servlet.version>
+		<jsp.version>2.2</jsp.version>
+		<jstl.version>1.2</jstl.version>
+		<spring.boot.version>1.4.1.RELEASE</spring.boot.version>
+		<mybatis.boot.version>1.1.1</mybatis.boot.version>
+		<fastjson.version>1.2.8</fastjson.version>
+		<com.thoughtworks.xstream.version>1.4.8</com.thoughtworks.xstream.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<httpclient.version>4.5.1</httpclient.version>
+		<httpclient.core.version>4.4.4</httpclient.core.version>
+		<poi.version>3.14</poi.version>
+		<echarts.version>3.0.0.1</echarts.version>
+		<!-- my pro -->
+		<com.injedu.compent.version>1.0.3-SNAPSHOT</com.injedu.compent.version>
+	</properties>
+
+	<!-- 依赖管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- import spring boot parent -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.boot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.injedu</groupId>
+				<artifactId>injedu-utils</artifactId>
+				<version>${com.injedu.compent.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.injedu</groupId>
+				<artifactId>injedu-bookproduce</artifactId>
+				<version>${com.injedu.compent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.injedu</groupId>
+				<artifactId>injedu-supports-push</artifactId>
+				<version>${com.injedu.compent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.injedu</groupId>
+				<artifactId>injedu-supports-payment</artifactId>
+				<version>${com.injedu.compent.version}</version>
+			</dependency>
+
+			<!-- web related -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>${jsp.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- jstl -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
+			</dependency>
+
+			<!-- tools related -->
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${com.thoughtworks.xstream.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.abel533</groupId>
+				<artifactId>ECharts</artifactId>
+				<version>${echarts.version}</version>
+			</dependency>
+
+			<!-- http client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>${httpclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>${httpclient.core.version}</version>
+			</dependency>
+
+			<!-- excel poi -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+</project>

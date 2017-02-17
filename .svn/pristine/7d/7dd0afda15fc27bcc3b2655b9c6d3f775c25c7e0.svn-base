@@ -1,0 +1,99 @@
+    <!-- content start -->
+        <div>
+        	<ul class="am-breadcrumb">
+	            <li><a href="javascript:;">对话框</a></li>
+	            <li><a href="javascript:;">Dialog</a></li>
+            </ul>
+        </div>
+        <div class="am-g">
+            <div class="am-u-md-12">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf">
+                     	   提示框
+                    </div>
+                    <div class="am-panel-bd am-collapse am-in" >
+                        <button class="am-btn am-btn-primary" id="prompt">提示框</button>
+                        <button class="am-btn am-btn-primary" id="confirm">确认框</button>
+                        <button class="am-btn am-btn-primary" id="loading">加载框</button>
+                        <button class="am-btn am-btn-primary" id="loadingtest">加载框测试</button>
+                        <button class="am-btn am-btn-primary" id="notice">通知栏</button>
+                        <button class="am-btn am-btn-primary" id="actions">Actions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- content end -->
+
+<script type="text/javascript">
+
+
+    var $dl = $.IJ.Dialog;
+    var $http = $.IJ.Http;
+
+    $(function(){
+
+        $('#prompt').on('click',function(){
+
+            $dl.alert('提示信息');
+
+        });
+
+        $('#confirm').on('click',function(){
+
+            $dl.confirm({
+                title: '错误提示',
+                content: '正文内容',
+                onConfirm: function() {
+                    console.log('onConfirm');
+                },
+                onCancel: function() {
+                    console.log('onCancel')
+                }
+            });
+
+        });
+
+        $('#loading').on('click',function(){
+
+            var $loading = $dl.loading();
+            
+            $.get('./admin-dic.html').always(function(){
+            	setTimeout(function(){
+            		$dl.close($loading);
+            	},300);
+       	 	});
+            
+        });
+        
+        $('#loadingtest').on('click',function(){
+        	 var $loading = $dl.loading();
+        	 $.get('./admin-dic.html').always(function(){
+                 $dl.close($loading,true);
+        	 });       	 
+        });
+      
+        $('#notice').on('click',function(){
+            $dl.toast('我是中午，我是中午');
+        });
+
+        $('#actions').on('click',function(){
+            var $actions = $dl.actions({
+                title : '分享',
+                items : [
+                    { content : '微信' , css : "am-btn-success"},
+                    { content : '朋友圈'}],
+                onSelected : function(index,obj){
+
+                    switch(index){
+                        case 1:
+                            $dl.alert('选择微信');
+                            break;
+                        case 2:
+                            $dl.alert('选择朋友圈');
+                            break;
+                    }
+                }
+            });
+        });
+    });
+</script>

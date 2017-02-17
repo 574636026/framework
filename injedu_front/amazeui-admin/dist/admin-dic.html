@@ -1,0 +1,61 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">字典</a></li>
+	        <li><a href="javascript:;">Dic</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    	字典<span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                    <div class="am-g am-form am-form-horizontal">
+                     	<div class="am-form-group">
+                           <select name="select1" data-ij-dic="{url : 'json/dic/%s.json',code : 'select',dataValue : 2}"></select>
+                        </div>
+                        <div class="am-form-group">
+                           <input name="radio1" type="radio" data-ij-dic="{url : 'json/dic/%s.json',code : 'radio'}"/>
+                        </div>
+                        <div class="am-form-group">
+                           <input name="checkbox1" type="checkbox" data-ij-dic="{url : 'json/dic/%s.json',code : 'checkbox',dataValue : [1,2] }"/>
+                        </div>
+                        <div class="am-form-group">
+                           <input name="radio2" type="radio" data-ij-dic="{url : 'json/dic/%s.json',code : 'radio',display : 'ver'}"/>
+                        </div>
+                        <div class="am-form-group">
+                           <input name="checkbox2" type="checkbox" data-ij-dic="{url : 'json/dic/%s.json',code : 'checkbox',display : 'ver'}"/>
+                        </div>
+						<div class="am-form-group">
+							<label class="am-u-sm-4 am-text-right">文本：</label>
+							<div class="am-u-sm-8" data-ij-dic="{url : 'json/dic/%s.json',code : 'checkbox',dataValue : 1}"></div>
+                        </div>
+                        <div class="am-form-group">
+	                    	<div class="am-u-sm-offset-4 am-u-sm-8">
+	                    		<a id="select1" href="javascript:;" class="am-btn am-btn-primary">选中第一项</a>
+	                    	</div>
+	                    </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+<script type="text/javascript">
+	$(function(){
+		
+		var $radio = $('[name="radio1"]');
+		$radio.ijdic({url : 'json/dic/%s.json',code : 'radio'});
+		
+		$('#select1').on('click',function(){
+			$('[name="select1"]').ijdic('select',0);
+			$radio.ijdic('select',0);
+		});
+		
+	});
+	
+</script>
+</html>

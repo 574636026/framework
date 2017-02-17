@@ -1,0 +1,41 @@
+<!-- content start -->
+<div class="ij-table am-panel am-panel-default" style="width: 625px;margin-bottom: auto;">
+	<div class="am-panel-bd am-g">
+		<div class="am-g am-searchbar">
+			<div class="am-u-sm-1">&nbsp;</div>
+			<div class="am-u-sm-6 am-u-end">
+				<div class="am-input-group am-input-group-sm">
+					<input name="lsearch" type="text" class="am-form-field"
+						placeholder="标题" /> <span class="am-input-group-btn">
+						<button class="am-btn am-btn-secondary ij-search" type="button">搜索</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="am-g am-g-collapse">
+			<div class="am-u-sm-1">
+				<div class="am-tool-wrapper">
+					<div class="am-tool-panel am-tool-panel-secondary am-danger am-text-center">
+						<div class="am-tool-hd">工具栏</div>
+						<div class="am-tool-bd am-toolbar"></div>
+					</div>
+				</div>
+			</div>
+			<div class="am-u-sm-11">
+				<table
+					class="ij-lookup-table am-table am-table-striped am-table-bordered am-table-hover">
+					<thead>
+						<tr>
+							<th width="8%" ij-cloumn="id" class="ij-check table-check"><input type="checkbox" /></th>
+							<th ij-cloumn="title">标题</th>
+							<th width="18%" ij-cloumn="category">类别</th>
+							<th width="16%" ij-cloumn="author">作者</th>
+							<th width="20%" ij-cloumn="time">修改日期</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- content end -->

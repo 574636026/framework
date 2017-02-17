@@ -1,0 +1,34 @@
+package ${packageName};
+
+#set($baseServiceImpl = "BaseServiceImpl")
+## 排序处理
+#if($table.sort)
+#set($baseServiceImpl = "BaseSortedServiceImpl")
+#end
+
+#foreach($im in ${importList})
+import ${im};
+#end
+
+import com.injedu.core.service.impl.${baseServiceImpl};
+
+/**
+ * ${table.desc}service实现
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+@Transactional
+@Service(value = "${serviceFirstLowerNoBeginGeneratedClassName}")
+public class ${serviceImplGeneratedShotClassName} extends ${baseServiceImpl}<${domainGeneratedShotClassName}> implements 
+		${serviceGeneratedShotClassName} {
+
+    @Resource
+	private ${daoImplGeneratedShotClassName} ${daoImplFirstLowerGeneratedClassName};
+
+	@Override
+	protected ${daoImplGeneratedShotClassName} getDao() {
+		return ${daoImplFirstLowerGeneratedClassName};
+	}
+}

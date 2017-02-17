@@ -1,0 +1,24 @@
+package ${packageName};
+
+#set($baseService = "IBaseService")
+## 排序处理
+#if($table.sort)
+#set($baseService = "IBaseSortedService")
+#end
+
+#foreach($im in ${importList})
+import ${im};
+#end
+
+import com.injedu.core.service.${baseService};
+
+/**
+ * ${table.desc}service接口
+ *
+ * @author: ${constant_creator}
+ * @date: ${date}
+ * @version ${constant_version}
+ */
+public interface ${serviceGeneratedShotClassName} extends ${baseService}<${domainGeneratedShotClassName}>{
+
+}

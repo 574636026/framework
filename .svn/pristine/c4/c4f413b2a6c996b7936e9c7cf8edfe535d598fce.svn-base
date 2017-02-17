@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="am-g">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd am-cf" >
+                编辑表格信息
+            </div>
+            <div class="am-panel-bd">
+                <form class="am-form am-form-horizontal ij-edit" data-am-validator>
+                    <input  type="hidden" name="id"/>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-2 am-form-label">标题</label>
+                        <div class="am-u-sm-10">
+                            <input type="text" name="title" class="am-input-sm" placeholder="请输入标题" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-2 am-form-label">类别</label>
+                        <div class="am-u-sm-10">
+                            <select name="category" data-am-selected required>
+                                <option value=""></option>
+                                <option value="1">分类一</option>
+                                <option value="2">分类二</option>
+                                <option value="3">分类三</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-2 am-form-label">作者</label>
+                        <div class="am-u-sm-10">
+                            <textarea name="author" class="am-input-sm js-pattern-userName" rows="5" placeholder="请输入作者(8-10位字母数字下划线的组合)"
+                                      required
+                                      ></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-sm-2 am-form-label">日期</label>
+                        <div class="am-u-sm-10">
+                            <input type="text" name="date" class="am-input-sm" placeholder="请选择日期" data-am-datepicker readonly required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-10 am-u-sm-offset-2">
+                            <button type="submit" class="am-btn am-btn-secondary ij-submit">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

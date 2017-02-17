@@ -1,0 +1,149 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">树形</a></li>
+	        <li><a href="javascript:;">Tree</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                  	  树形<span class="am-icon-chevron-down am-fr"></span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+		             <ul class="am-tree" id="firstTree">
+		                <li class="am-tree-branch am-hide"  data-template="treebranch" role="treeitem" aria-expanded="false">
+							<div class="am-tree-branch-header" style="border-bottom: 1px dotted #ccc;">
+								 <div class="am-tree-branch-name">
+								    <span class="am-tree-icon am-tree-icon-folder"></span>
+								    <span class="am-tree-label"></span>
+								    <span class="am-fr">
+								    	<span class="am-toolbar am-toolbar-horizontal am-toolbar-padding-sm">
+									    	<a href="#" title="内容"><i class="am-icon-bc"></i></a>
+									    	<a href="#" title="添加"><i class="am-icon-tianjia"></i></a>
+										    <a href="#" title="编辑"><i class="am-icon-bianji"></i></a>
+										    <a href="#" title="删除"><i class="am-icon-shanchu"></i></a>
+									    </span>
+								    </span>
+								 </div>
+							</div>
+							<ul class="am-tree-branch-children" role="group"></ul>
+							<div class="am-tree-loader" role="alert">Loading...</div>
+						</li>
+						<li class="am-tree-item am-hide" style="border-bottom: 1px dotted #ccc;" 
+							data-template="treeitem" role="treeitem">
+							<div class="am-tree-item-name">
+								 <span class="am-tree-icon am-tree-icon-item"></span>
+								 <span class="am-tree-label"></span>
+								 <span class="am-fr">
+								 	<span class="am-toolbar am-toolbar-horizontal am-toolbar-padding-sm">
+								 		<a href="#" title="内容"><i class="am-icon-bc"></i></a>
+									    <a href="#" title="添加"><i class="am-icon-tianjia"></i></a>
+									    <a href="#" title="编辑"><i class="am-icon-bianji"></i></a>
+									    <a href="#" title="删除"><i class="am-icon-shanchu"></i></a>
+								 	</span>
+								 </span>
+							 </div>
+						</li>
+		             </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+<script type="text/javascript">
+
+	var $tools = $.IJ.Tools;
+
+    $(function () {
+
+    	var products = {
+    		
+    		1 : [
+                 {
+                     title: 'iPhone',
+                     type: 'folder',
+                     id:11
+                 },
+                 {
+                     title: 'iMac',
+                     type: 'item',
+                     id:12
+                 },
+                 {
+                     title: 'MacBook Pro',
+                     type: 'item',
+                     id:13
+                 }
+             ],
+           2 : [
+                {
+                    title: 'WinPhone',
+                    type: 'item',
+                    id:21
+                },
+                {
+                    title: 'Surface',
+                    type: 'item',
+                    id:22
+                }
+            ],
+           11:[
+				{
+				    title: 'IPhone 6',
+				    type: 'item',
+				    id:111
+				},
+				{
+				    title: 'IPhone 7',
+				    type: 'item',
+				    id:112
+				}
+              ]
+    	}
+    	
+        var data = [
+            {
+                title: '苹果公司',
+                type: 'folder',
+                id : 1
+            },
+            {
+                title: '微软公司',
+                type: 'folder',
+                id : 2
+            },
+            {
+                title: 'GitHub',
+                type: 'folder',
+                id: 3
+            }
+        ];
+
+    	
+        $('#firstTree').tree({
+            dataSource: function (options, callback) {
+            	if(!options.id){
+            		callback({data : data});
+            	}else{
+            		// 模拟异步加载
+                    setTimeout(function () {
+                        callback({data: products[options.id] || []});
+                    }, 400);
+            	}
+            },
+            itemSelect:false,
+            multiSelect: false,
+            cacheItems: true,
+            folderSelect: false
+        }).on('selected.tree.amui',function(event,data){
+        	var d = data.selected[0];
+        	console.log(d);
+        });
+
+    });
+
+</script>
+</body>
+</html>

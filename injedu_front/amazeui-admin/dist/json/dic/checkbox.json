@@ -1,0 +1,10 @@
+{
+  "item" : "checkbox",
+  "value" : "1001",
+  "sub" : [
+  	{"item" : "多选1","value" : 1},
+	{"item" : "多选2","value" : 2},
+	{"item" : "多选3","value" : 3},
+	{"item" : "多选4","value" : 4}
+  ]
+}

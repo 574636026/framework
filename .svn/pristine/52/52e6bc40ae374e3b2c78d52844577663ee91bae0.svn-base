@@ -1,0 +1,67 @@
+    <!-- content start -->
+        <div>
+        	<ul class="am-breadcrumb">
+	            <li><a href="javascript:;">自动补全</a></li>
+	            <li><a href="javascript:;">Autocomplete</a></li>
+            </ul>
+        </div>
+        <div class="am-g">
+            <div class="am-u-md-12">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd am-cf">
+                        自动补全
+                    </div>
+                    <div class="am-panel-bd am-collapse am-in" >
+                        <div id="typeahead">
+                            <input class="typeahead" type="text" placeholder="请输入...">
+                            <button id="ij-submit" class="am-btn am-btn-secondary">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- content end -->
+
+<script type="text/javascript">
+
+    $(function(){
+
+        var source = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: './json/typeheader/source.json?t=7'
+        });
+
+        $('#typeahead input').typeahead({
+            highlight: true,
+            hint:false,
+            minLength: 1
+        }, {
+            name: 'countries',
+            source: source,
+            display:'item',
+            templates: {
+                suggestion: function(context){
+                    return '<div><strong>' +context.item +'</strong> –'+ context.year +'</div>'
+                }
+            }
+        }).on('typeahead:select',function(e, suggestion){
+            console.log('Selection: ' + suggestion);
+            $(this).data('ij-value',suggestion.value);
+        }).on('typeahead:close',function(e){
+            console.log($(this).data('ij-value'));
+        }).on('typeahead:cursorchange',function(e){
+            console.log('cursorchange');
+        });
+
+        $('#ij-submit').on('click',function(){
+
+            var val= $('#typeahead input').typeahead('val');
+
+            console.log(val);
+
+        });
+
+    });
+
+</script>

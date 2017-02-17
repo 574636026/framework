@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+	<!-- 数据库配置
+    <jdbc name="dialect" value="mysql"/>
+    <jdbc name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <jdbc name="url" value="jdbc:mysql://115.29.231.55:3306/kxx_review_test?useUnicode=true&amp;characterEncoding=utf-8"/>
+    <jdbc name="username" value="kxxtest"/>
+    <jdbc name="password" value="kxxtest"/> -->
+    
+    <!-- 字段类型转换 -->
+    <convert dbType="number" jdbcType="BIGINT" javaType="java.lang.Long"/>
+    <convert dbType="VARCHAR2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    <convert dbType="SYS.XMLTYPE" jdbcType="LONGVARCHAR" javaType="java.lang.String"/>
+    <convert dbType="TIMESTAMP" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <convert dbType="datetime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <convert dbType="BLOB" jdbcType="BLOB" javaType="java.lang.Byte[]"/>
+    <convert dbType="INT" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <convert dbType="MEDIUMINT" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <convert dbType="INT UNSIGNED" jdbcType="BIGINT" javaType="java.lang.Long"/>
+    
+    <!-- 项目配置 -->
+    <constant name="encoding" value="UTF-8"/>
+    <constant name="templateDir" value="template/default"/>
+    <constant name="creator" value="code generator"/>
+    <constant name="version" value="1.0"/>
+	
+    <!-- 代码生成配置 -->
+    <!-- 是否覆盖原有代码 
+    <constant name="overrideCode"  value="true"/>
+    <constant name="targetDir" value="F:\\EclipseWorkPlace\\WebWorkPlace\\injedu_kxx\\app\\web-biz"/>
+    <constant name="srcDir" value="src/main/java"/>
+    <constant name="testSrcDir" value="src/test/java"/>
+    <constant name="modelDir" value=""/>
+    <constant name="basePackage" value="com.injedu.kxx.maintain.res"/>-->
+
+    <!-- 实体公用字段 -->
+    <baseColumns>
+        <column name="id"/>
+        <column name="create_by"/>
+        <column name="create_time"/>
+        <column name="last_update_by"/>
+        <column name="last_update_time"/>
+        <column name="is_delete"/>
+    </baseColumns>
+   
+	<!-- 任务列表配置 -->
+    <tasks>
+        
+         <task name="entity"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/entity.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="Entity"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.entity"/>
+        </task>
+        
+        <task name="domain"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/domain.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value=""/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.domain"/>
+        </task>
+        
+        <task name="javaMapper"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/mybatis/javaMapper.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="Mapper"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.mapper"/>
+        </task>
+
+        <task name="xmlMapper"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/mybatis/xmlMapper.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="Mapper"/>
+            <property name="suffix" value=".xml"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcResourse}"/>
+            <property name="package" value="${basePackage}.mapper"/>
+        </task>
+        
+        <task name="daoImpl"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/daoImpl.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="Dao"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.dao"/>
+        </task>
+
+        <task name="service"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/service.vm"/>
+            <property name="beginFix" value="I"/>
+            <property name="endFix" value="Service"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.service"/>
+        </task>
+
+        <task name="serviceImpl"
+              class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/serviceImpl.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="ServiceImpl"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${srcDir}"/>
+            <property name="package" value="${basePackage}.service.impl"/>
+        </task>
+
+        <task name="serviceTest" class="com.injedu.easycode.maintain.generator.DefaultCodeGenerator">
+            <property name="template" value="${templateDir}/serviceTest.vm"/>
+            <property name="beginFix" value=""/>
+            <property name="endFix" value="ServiceTest"/>
+            <property name="suffix" value=".java"/>
+            <property name="moduledir" value="${targetDir}/${modelDir}"/>
+            <property name="srcdir" value="${testSrcDir}"/>
+            <property name="package" value="${basePackage}.test"/>
+        </task>
+    </tasks>
+
+</config>

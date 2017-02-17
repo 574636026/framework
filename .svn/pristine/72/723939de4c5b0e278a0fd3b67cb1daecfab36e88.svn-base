@@ -1,0 +1,53 @@
+<!-- content start -->
+    <div>
+    	<ul class="am-breadcrumb">
+	        <li><a href="javascript:;">切换开关</a></li>
+	        <li><a href="javascript:;">Switch</a></li>
+        </ul>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">
+                    <span class="am-icon-chevron-down am-fr">切换开关</span>
+                </div>
+                <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
+                    <div class="am-g am-form am-form-horizontal">
+                    	<div class="am-form-group">
+                    		<label class="am-u-sm-2 am-form-label">&nbsp;</label>
+                            <button id="switch-get" class="am-btn am-btn-primary">获取状态</button>
+                        </div>
+                    	<div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">开启</label>
+                            <input name="switch" type="checkbox" data-ij-switch/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-2 am-form-label">关闭</label>
+                            <input name="switchclose" type="checkbox" data-ij-switch="{state:false}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- content end -->
+</body>
+<script type="text/javascript">
+	$(function(){
+		
+		$('#switch-get').on('click',function(){
+			var obj = $('[name="switch"]');
+			console.log('state : ' + obj.ijswitch('state'));
+		});
+		
+		$('[name="switchclose"]').on('switchChange.bootstrapSwitch',function(object){
+			
+			var state = $(this).ijswitch('state');
+			
+			console.log('state : ' + state);
+		});
+		
+	});	
+</script>
+
+</html>

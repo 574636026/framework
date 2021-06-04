@@ -28,7 +28,7 @@
 		<fastjson.version>1.2.8</fastjson.version>
 		<com.thoughtworks.xstream.version>1.4.8</com.thoughtworks.xstream.version>
 		<dom4j.version>1.6.1</dom4j.version>
-		<httpclient.version>4.5.1</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<httpclient.core.version>4.4.4</httpclient.core.version>
 		<poi.version>3.14</poi.version>
 		<echarts.version>3.0.0.1</echarts.version>

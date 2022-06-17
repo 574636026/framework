@@ -25,7 +25,7 @@
 		<jstl.version>1.2</jstl.version>
 		<spring.boot.version>1.4.1.RELEASE</spring.boot.version>
 		<mybatis.boot.version>1.1.1</mybatis.boot.version>
-		<fastjson.version>1.2.8</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<com.thoughtworks.xstream.version>1.4.8</com.thoughtworks.xstream.version>
 		<dom4j.version>1.6.1</dom4j.version>
 		<httpclient.version>4.5.1</httpclient.version>

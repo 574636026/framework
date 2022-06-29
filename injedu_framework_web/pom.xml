@@ -30,7 +30,7 @@
 		<dom4j.version>1.6.1</dom4j.version>
 		<httpclient.version>4.5.1</httpclient.version>
 		<httpclient.core.version>4.4.4</httpclient.core.version>
-		<poi.version>3.14</poi.version>
+		<poi.version>4.1.1</poi.version>
 		<echarts.version>3.0.0.1</echarts.version>
 		<!-- my pro -->
 		<com.injedu.compent.version>1.0.3-SNAPSHOT</com.injedu.compent.version>
